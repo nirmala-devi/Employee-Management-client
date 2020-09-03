@@ -95,6 +95,7 @@ updateDelEmployee =(event) =>{
         console.log(res)      
         alert(" Successfully Updated Employee")
       },(error)=>{
+        alert('Can not update Employee')
         console.log(error)
       });
       break;
@@ -104,6 +105,7 @@ updateDelEmployee =(event) =>{
         alert('Employee Deleted')
         this.setState({ empId:'', firstName:'', surName:'',  email :'',  dob:'',  gender :'',   });
       },(error)=>{
+        alert('Can not delete Employee')
         console.log(error)
       });
       break;  
@@ -118,7 +120,7 @@ async  callServer() {
     let result = await Axios.post(this.empApiUrl,{empId,firstName,surName,email,dob,gender });
     return result;
   }catch(err){
-    //alert('Employee ID exist')
+    alert('Can not create Employee')
     console.log(err);
   }
   
