@@ -67,6 +67,7 @@ class App extends React.Component {
 
   addNewEmp =(event)=>{       
      let rst = this.callServer();
+     alert("Employee created")
      console.log(rst) ;
   } 
 
