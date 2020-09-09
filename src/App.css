@@ -22,7 +22,7 @@ li{
   float: left;
 }
 
-a,input[type=button]{
+a,input[type=button],input[type=submit]{
   background-color: rgba(0, 45, 128, 0.603);
   color:white;
   text-decoration: none;
@@ -52,7 +52,7 @@ a:active{
   color: blue;
   font-size: 20px;
 }
-input[type=text],input[type=email],input[type=date]{
+input[type=text],input[type=email],input[type=date],input[type=number]{
   height:30px;
   width:250px;
   border-radius: 5px;

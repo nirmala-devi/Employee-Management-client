@@ -146,14 +146,15 @@ async  callServer() {
         </ul><br/>
         <hr/>
        </div>
-       <div className='empDtl'>     
+       <div className='empDtl'>   
+       <form onSubmit={this.updateDelEmployee}>
         <p>{this.state.status}</p>        
         <table class="readEmp">
         <tr>
            
             <td ><label for='emId'>Employee ID</label> &nbsp;&nbsp;&nbsp;</td>
-             <td><input type='text' id='emId' name='empId'
-                        value={this.state.empId}
+             <td><input type='number' id='emId' name='empId'
+                        value={this.state.empId} title="Only numbers"
                         onChange={this.changeHandler} required></input></td>
           </tr>
          <tr>
@@ -175,7 +176,7 @@ async  callServer() {
              <td><label for='lastNm'>Last Name</label>&nbsp; </td>
              <td><input type='text' id='lastNm' name='surName' 
                     value={this.state.surName}
-                    onChange={this.changeHandler} required></input>
+                    onChange={this.changeHandler} ></input>
               </td>
             </tr>
 
@@ -183,7 +184,7 @@ async  callServer() {
               <td> <label for='email'>Email</label>&nbsp; </td>
               <td> <input type='email' id='email' name='email' 
                     value={this.state.email}
-                    onChange={this.changeHandler} required></input>
+                    onChange={this.changeHandler} ></input>
                </td>
             </tr>     
 
@@ -208,13 +209,12 @@ async  callServer() {
             <tr>
             
                 <td></td>
-                <td><input type='button' style={showBtn} value={this.state.btnVl} id='create'
-                 onClick={this.updateDelEmployee}/></td>
-  <br/>
+                <td><input type='submit' style={showBtn} value={this.state.btnVl} id='create'/></td>
+                   <br/>
              </tr>    
           </table>
-       </div>
-      
+          </form>  
+       </div>      
       </div>
     );
   }
