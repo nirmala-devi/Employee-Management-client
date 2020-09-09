@@ -16,7 +16,7 @@ class App extends React.Component {
         status:'Create New Employee',
         btnVl:'Create'
     };
-    this.empApiUrl='http://localhost:5000/employee';
+    this.empApiUrl='http://localhost:5000/employees';
   }
 
   componentDidMount(){
@@ -66,8 +66,7 @@ class App extends React.Component {
  }
 
   addNewEmp =(event)=>{       
-     let rst = this.callServer();
-     alert("Employee created")
+     let rst = this.callServer();     
      console.log(rst) ;
   } 
 
@@ -119,6 +118,8 @@ async  callServer() {
   const{empId,firstName,surName,email,dob,gender} = this.state; 
   try{
     let result = await Axios.post(this.empApiUrl,{empId,firstName,surName,email,dob,gender });
+    if(result.status===201)
+        alert("Employee created")
     return result;
   }catch(err){
     alert('Can not create Employee')
