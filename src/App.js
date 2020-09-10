@@ -19,10 +19,6 @@ class App extends React.Component {
     this.empApiUrl='http://localhost:5000/employees';
   }
 
-  componentDidMount(){
-    // Axios.get(this.empApiUrl).then(res=>res.data).then(rslt=>this.setState({rslt}))
-  }
-
   changeHandler = event=>{
     let name = event.target.name;
     let value = event.target.value;
@@ -75,16 +71,18 @@ class App extends React.Component {
     //alert('empId',empId);
     var url = this.empApiUrl+'/'+ empId;    
     Axios.get(url).then((res)=>{
-    console.log(res)       
+    console.log(res)      
     this.setState(res.data)
   },(error)=>{
     alert("Employee Id is not Exist");
+    this.setState({ empId:'', firstName:'', surName:'',  email :'',  dob:'',  gender :'',   });
     console.log(error)
   });
           
 }
 
 updateDelEmployee =(event) =>{
+  event.preventDefault();
   const{empId} = this.state;
   var url = this.empApiUrl+'/'+ empId;
    switch(this.state.btnVl){
